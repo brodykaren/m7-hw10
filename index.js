@@ -7,8 +7,7 @@ var textarea = document.querySelector('textarea')
 // Retrieve name and note content from cookies and localstorage
 // Then apply them to elements on the page
 // YOUR CODE HERE
-var contentInput = document.getElementById ('content')
-var notesInput = document.getElementById ('notes')
+var notesarea = document.getElementById ('notes-area')
 var formEl = localStorage.getItem ('content')
 var clear = localStorage.getItem ('#clear')
 
@@ -19,26 +18,42 @@ formEl.onsubmit = function(e) {
   // save textarea's content to localstorage
   // YOUR CODE HERE
 
-var contentInput
+var notesarea
 var cookies = document.cookie.split ('  ; ' )
 console.log (cookies)
-var contentInputcookie = cookies.find ( function (cookie)
+var notesareacookie = cookies.find ( function (cookie)
 {
   
-  return cookie.startsWith (notesInput)
-
-
+  return cookie.startsWith (notesarea)
 
 })
 
+console .log (notesareacookie)
 
-console .log (contentInputcookie)
+if (notesareacookie) {
 
-if (contentInputcookie) {
-
-contentInput = contentInputcookie.split (' = ' ) [ notes]
+notesareaInput = contentcookie.split (' = ' ) [ 1]
 
 }
+
+
+// var editor = document .querySelectorAll ('notes-area')
+// if (window.localStorage) ["notes-area"]
+
+// {
+
+//   editor.value =window.localStorage 
+//   ["notes-area"]
+// }
+
+
+
+// editor.addEventlistener (notes-this.ariaExpanded, function ()
+
+
+// { window.localStorage ["notes-area"] = editor.value;
+
+// })
 
   // triggers thumbs up animation
   this.elements.save.classList.add('emoji')
@@ -50,10 +65,6 @@ clear.onclick = function() {
   // YOUR CODE HERE
 
 
-
-
-
-
   formEl.onsubmit = function (e) {
 
     e.preventDefault ()
@@ -62,7 +73,6 @@ clear.onclick = function() {
     localStorage.setItem ('content', contentInput.value)
     localStorage.setItem (' notes', notesInput.value)
   }
-
 
 
   // triggers thumbs up animation
