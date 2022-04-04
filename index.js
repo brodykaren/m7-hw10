@@ -21,45 +21,7 @@ textarea.value = text
 // Then apply them to elements on the page
 // YOUR CODE HERE
 
-// var note = document.querySelector ("notes-area")
-// var cookies = document.cookie.split ('  ; ' )
-// console.log (cookies)
-// var noteCookie = cookies.find ( function (cookie)
-// {
-  
-//   return cookie.startsWith ('note')
 
-
-
-// })
-
-// console .log (noteCookie)
-
-// if (noteCookie) {
-
-// noteEL = noteCookie.split (' = ' ) ['clear' ]
-
-// } else {
-
-//   clear = 0
-// }
-
-// noteEL.textarea = note
-
-// var nameCookie =cookies.find (function ( cookie) {
-
-
-//   return cookie.startsWith ('name')
-// } )
-
-// console.log (nameCookie)
-// if (nameCookie) {
-
-// count = nameCookie.split ('=') [ 'clear']
-
-// nameEL.textarea = note
-
-// }
 
 formEl.onsubmit = function(e) {
   // prevents form submission
