@@ -5,55 +5,72 @@ var clear = document.querySelector('#clear')
 var textarea = document.querySelector('textarea')
 
 // Retrieve name and note content from cookies and localstorage
+function getCookie(name){
+  let value = `; ${document.cookie}`;
+  let parts = value.split(`; ${name}=`)
+  return parts.pop().split(';').shift()
+}
+
+let name = getCookie("name")
+
+let text = localStorage.getItem("text")
+
+
+nameSpan.textContent = name
+textarea.value = text
 // Then apply them to elements on the page
 // YOUR CODE HERE
-var notesarea = document.getElementById ('notes-area')
-var formEl = localStorage.getItem ('content')
-var clear = localStorage.getItem ('#clear')
+
+// var note = document.querySelector ("notes-area")
+// var cookies = document.cookie.split ('  ; ' )
+// console.log (cookies)
+// var noteCookie = cookies.find ( function (cookie)
+// {
+  
+//   return cookie.startsWith ('note')
+
+
+
+// })
+
+// console .log (noteCookie)
+
+// if (noteCookie) {
+
+// noteEL = noteCookie.split (' = ' ) ['clear' ]
+
+// } else {
+
+//   clear = 0
+// }
+
+// noteEL.textarea = note
+
+// var nameCookie =cookies.find (function ( cookie) {
+
+
+//   return cookie.startsWith ('name')
+// } )
+
+// console.log (nameCookie)
+// if (nameCookie) {
+
+// count = nameCookie.split ('=') [ 'clear']
+
+// nameEL.textarea = note
+
+// }
 
 formEl.onsubmit = function(e) {
   // prevents form submission
   e.preventDefault()
+ document.cookie = `name = ${nameSpan.textContent}`
+
+ localStorage.setItem("text", textarea.value)
+  
   // save name element's content to cookies
   // save textarea's content to localstorage
   // YOUR CODE HERE
-
-var notesarea
-var cookies = document.cookie.split ('  ; ' )
-console.log (cookies)
-var notesareacookie = cookies.find ( function (cookie)
-{
-  
-  return cookie.startsWith (notesarea)
-
-})
-
-console .log (notesareacookie)
-
-if (notesareacookie) {
-
-notesareaInput = contentcookie.split (' = ' ) [ 1]
-
-}
-
-
-// var editor = document .querySelectorAll ('notes-area')
-// if (window.localStorage) ["notes-area"]
-
-// {
-
-//   editor.value =window.localStorage 
-//   ["notes-area"]
-// }
-
-
-
-// editor.addEventlistener (notes-this.ariaExpanded, function ()
-
-
-// { window.localStorage ["notes-area"] = editor.value;
-
-// })
 
   // triggers thumbs up animation
   this.elements.save.classList.add('emoji')
@@ -61,18 +78,18 @@ notesareaInput = contentcookie.split (' = ' ) [ 1]
 
 clear.onclick = function() {
   // Clear textarea's value
+  localStorage.removeItem("text")
+  document.cookie = `name = ${nameSpan.textContent}; max-age=0`
+  nameSpan.textContent = `Your Name`
+  textarea.value = ""
   // Clear localstorage's content
   // YOUR CODE HERE
 
 
-  formEl.onsubmit = function (e) {
 
-    e.preventDefault ()
-    console.log ('submitted')
-    formEl.textContent = contentInput.value + " " + notesInput.value
-    localStorage.setItem ('content', contentInput.value)
-    localStorage.setItem (' notes', notesInput.value)
-  }
+
+
+
 
 
   // triggers thumbs up animation
